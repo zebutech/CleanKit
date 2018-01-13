@@ -1,0 +1,6 @@
+framework module Pods_CleanKit_Tests {
+  umbrella header "Pods-CleanKit_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

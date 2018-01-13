@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  CleanKit
 //
-//  Created by smartbeacon on 01/13/2018.
-//  Copyright (c) 2018 smartbeacon. All rights reserved.
+//  Created by Ludovic Riviere on 13/01/2018.
+//  Copyright © 2018 ZEBUTECH. All rights reserved.
 //
 
 import UIKit

@@ -1,0 +1,16 @@
+PODS:
+  - CleanKit (0.1.0)
+
+DEPENDENCIES:
+  - CleanKit (from `../`)
+
+EXTERNAL SOURCES:
+  CleanKit:
+    :path: ../
+
+SPEC CHECKSUMS:
+  CleanKit: af1081520b0072ce2bf0a9b09df598f69a443af1
+
+PODFILE CHECKSUM: 526e03bece7ca7ffd03060063f04c0e470b0c8d5
+
+COCOAPODS: 1.3.1
