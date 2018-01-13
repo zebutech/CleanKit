@@ -22,7 +22,7 @@ pod 'CleanKit'
 
 ## Author
 
-smartbeacon, ludovic.riviere2@gmail.com
+Ludovic Riviere
 
 ## License
 
