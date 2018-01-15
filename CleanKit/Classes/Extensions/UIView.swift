@@ -8,14 +8,14 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     
-    func round() {
+    public func round() {
         layer.cornerRadius = bounds.width / CGFloat(2)
         layer.masksToBounds = true
     }
     
-    func roundCorners(radius: CGFloat = CGFloat(0)) {
+    public func roundCorners(radius: CGFloat = CGFloat(0)) {
         guard radius >= CGFloat(0) else { return }
         layer.masksToBounds = true
         
@@ -34,7 +34,7 @@ extension UIView {
      - parameter edge: boolean flag indicates the need to extend bounds to outside using `height` value
      - parameter opacity: shadow opacity
      */
-    func dropShadow(cornerRadius: CGFloat = 0, height: CGFloat = 2, edge: Bool = false, opacity: Float = 0.2) {
+    public func dropShadow(cornerRadius: CGFloat = 0, height: CGFloat = 2, edge: Bool = false, opacity: Float = 0.2) {
         layer.shadowRadius = CGFloat(5)
         layer.shadowOffset = CGSize(width: 0, height: height)
         layer.shadowColor = UIColor.black.cgColor
@@ -47,12 +47,12 @@ extension UIView {
         }
     }
     
-    func border(width: CGFloat, color: UIColor) {
+    public func border(width: CGFloat, color: UIColor) {
         layer.borderWidth = width
         layer.borderColor = color.cgColor
     }
     
-    func snapshot() -> UIImage? {
+    public func snapshot() -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(bounds.size, true, UIScreen.main.scale)
         
         guard let context = UIGraphicsGetCurrentContext() else { return nil }
@@ -62,7 +62,7 @@ extension UIView {
         return UIGraphicsGetImageFromCurrentImageContext()
     }
     
-    func screenshot(of rect: CGRect? = nil) -> UIImage? {
+    public func screenshot(of rect: CGRect? = nil) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque, UIScreen.main.scale)
         drawHierarchy(in: bounds, afterScreenUpdates: true)
         let wholeImage = UIGraphicsGetImageFromCurrentImageContext()

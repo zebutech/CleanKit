@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - Generic Table View Model
 
-protocol TableViewModel {
+public protocol TableViewModel {
     var sections: [TableSectionViewModel] { get set }
     var count: Int { get }
     
@@ -21,7 +21,7 @@ protocol TableViewModel {
     func row(at indexPath: IndexPath) -> TableRowViewModel
 }
 
-extension TableViewModel {
+public extension TableViewModel {
     var count: Int { return sections.count }
     
     func headerViewModel(_ section: Int) -> TableHeaderViewModel? { return sections[section].header }
@@ -31,7 +31,7 @@ extension TableViewModel {
     func row(at indexPath: IndexPath) -> TableRowViewModel { return sections[indexPath.section].dataModel[indexPath.row] }
 }
 
-protocol TableSectionViewModel {
+public protocol TableSectionViewModel {
     var header: TableHeaderViewModel? { get set }
     var footer: TableFooterViewModel? { get set }
     var dataModel: [TableRowViewModel] { get }
@@ -44,7 +44,7 @@ protocol TableSectionViewModel {
     mutating func selectHeaderView()
 }
 
-extension TableSectionViewModel {
+public extension TableSectionViewModel {
     var header: TableHeaderViewModel? { return nil }
     var footer: TableFooterViewModel? { return nil }
     var count: Int { return dataModel.count }
@@ -57,21 +57,21 @@ extension TableSectionViewModel {
     }
 }
 
-protocol TableHeaderViewModel {
+public protocol TableHeaderViewModel {
     var rowClass: AnyClass { get }
     var headerHeight: CGFloat { get }
     
     func configure(view: UITableViewHeaderFooterView, isExpanded: Bool?)
 }
 
-protocol TableFooterViewModel {
+public protocol TableFooterViewModel {
     var rowClass: AnyClass { get }
     var footerHeight: CGFloat { get }
     
     func configure(view: UITableViewHeaderFooterView)
 }
 
-protocol TableRowViewModel {
+public protocol TableRowViewModel {
     var rowClass: AnyClass { get }
     var rowHeight: CGFloat { get }
     

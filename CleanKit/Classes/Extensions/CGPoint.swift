@@ -6,8 +6,8 @@
 //  Copyright © 2018 ZEBUTECH. All rights reserved.
 //
 
-extension CGPoint {
+public extension CGPoint {
     
-    static var half: CGPoint = CGPoint(x: 0.5, y: 0.5)
-    static var one: CGPoint = CGPoint(x: 1.0, y: 1.0)
+    public static var half: CGPoint = CGPoint(x: 0.5, y: 0.5)
+    public static var one: CGPoint = CGPoint(x: 1.0, y: 1.0)
 }
