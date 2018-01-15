@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - Generic Collection View Model
 
-protocol CollectionViewModel {
+public protocol CollectionViewModel {
     var sections: [CollectionSectionViewModel] { get set }
     var count: Int { get }
     
@@ -21,7 +21,7 @@ protocol CollectionViewModel {
     func row(at indexPath: IndexPath) -> CollectionRowViewModel
 }
 
-extension CollectionViewModel {
+public extension CollectionViewModel {
     var count: Int { return sections.count }
     
     func headerViewModel(_ section: Int) -> CollectionHeaderViewModel? { return sections[section].header }
@@ -30,7 +30,7 @@ extension CollectionViewModel {
     func row(at indexPath: IndexPath) -> CollectionRowViewModel { return sections[indexPath.section].dataModel[indexPath.row] }
 }
 
-protocol CollectionSectionViewModel {
+public protocol CollectionSectionViewModel {
     var header: CollectionHeaderViewModel? { get }
     var footer: CollectionFooterViewModel? { get }
     var dataModel: [CollectionRowViewModel] { get }
@@ -38,41 +38,41 @@ protocol CollectionSectionViewModel {
     var count: Int { get }
 }
 
-extension CollectionSectionViewModel {
+public extension CollectionSectionViewModel {
     var count: Int { return dataModel.count }
     var header: CollectionHeaderViewModel? { return nil }
     var footer: CollectionFooterViewModel? { return nil }
 }
 
-protocol CollectionHeaderViewModel {
+public protocol CollectionHeaderViewModel {
     var rowClass: AnyClass { get }
     
     func headerSize(inParent bounds: CGRect) -> CGSize
     func configure(view: UICollectionReusableView)
 }
 
-extension CollectionHeaderViewModel {
+public extension CollectionHeaderViewModel {
     func headerSize(inParent bounds: CGRect) -> CGSize { return .zero }
 }
 
-protocol CollectionFooterViewModel {
+public protocol CollectionFooterViewModel {
     var rowClass: AnyClass { get }
     
     func footerSize(inParent bounds: CGRect) -> CGSize
     func configure(view: UICollectionReusableView)
 }
 
-extension CollectionFooterViewModel {
+public extension CollectionFooterViewModel {
     func footerSize(inParent bounds: CGRect) -> CGSize { return .zero }
 }
 
-protocol CollectionRowViewModel {
+public protocol CollectionRowViewModel {
     var rowClass: AnyClass { get }
     
     func rowSize(inParent bounds: CGRect) -> CGSize
     func configure(cell: UICollectionViewCell)
 }
 
-extension CollectionRowViewModel {
+public extension CollectionRowViewModel {
     func rowSize(inParent bounds: CGRect) -> CGSize { return .zero }
 }

@@ -9,13 +9,13 @@
 import UIKit
 
 /// Protocol Interactor
-protocol Interactor {
+public protocol Interactor {
     associatedtype Presenter
     var presenter: Presenter { get set }
 }
 
 /// Protocol Presenter
-protocol Presenter {
+public protocol Presenter {
     associatedtype VC: UIViewController
     weak var viewController: VC? { get set }
 }
@@ -24,7 +24,7 @@ protocol Presenter {
 ///
 /// Will extend the presenter protocol to add functionnality
 ///
-extension Presenter where VC: VIPController {
+public extension Presenter where VC: VIPController {
     typealias ViewModel = VC.ViewModel
     func present(viewModel: ViewModel) {
         viewController?.layout(model: viewModel)
@@ -36,7 +36,7 @@ extension Presenter where VC: VIPController {
 ///
 /// Need to be implemented by all scenes
 ///
-protocol VIPController {
+public protocol VIPController {
     associatedtype Interactor
     associatedtype ViewModel
     var interactor: Interactor { get set }
@@ -47,4 +47,4 @@ protocol VIPController {
 ///
 /// Connect interactor, presenter and ViewModel
 ///
-extension VIPController { }
+public extension VIPController { }

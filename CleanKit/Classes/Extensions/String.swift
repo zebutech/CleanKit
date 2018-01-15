@@ -8,13 +8,13 @@
 
 import Foundation
 
-extension String {
+public extension String {
     
-    func localized() -> String {
+    public func localized() -> String {
         return NSLocalizedString(self, comment: "")
     }
     
-    func firstUppercased() -> String {
+    public func firstUppercased() -> String {
         return String(self.prefix(1)).uppercased() + String(self.dropFirst())
     }
 }

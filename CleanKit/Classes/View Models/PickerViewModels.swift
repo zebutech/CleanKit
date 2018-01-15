@@ -8,11 +8,11 @@
 
 import UIKit
 
-let UIPickerViewAutomaticDimension: CGFloat = -1.0
+public let UIPickerViewAutomaticDimension: CGFloat = -1.0
 
 // MARK: - Generic Picker View Model
 
-protocol PickerViewModel {
+public protocol PickerViewModel {
     var components: [PickerComponentViewModel] { get set }
     var count: Int { get }
     
@@ -20,26 +20,26 @@ protocol PickerViewModel {
     func row(at row: Int, inComponent component: Int) -> PickerRowViewModel
 }
 
-extension PickerViewModel {
+public extension PickerViewModel {
     var count: Int { return components.count }
     
     func numberOfRows(for component: Int) -> Int { return components[component].count }
     func row(at row: Int, inComponent component: Int) -> PickerRowViewModel { return components[component].dataModel[row] }
 }
 
-protocol PickerComponentViewModel {
+public protocol PickerComponentViewModel {
     var dataModel: [PickerRowViewModel] { get }
     var count: Int { get }
     
     func width(`in` pickerView: UIPickerView) -> CGFloat
 }
 
-extension PickerComponentViewModel {
+public extension PickerComponentViewModel {
     var count: Int { return dataModel.count }
     
     func width(in pickerView: UIPickerView) -> CGFloat { return UIPickerViewAutomaticDimension }
 }
 
-protocol PickerRowViewModel {
+public protocol PickerRowViewModel {
     var title: String { get set }
 }
